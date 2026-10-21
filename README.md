@@ -98,6 +98,8 @@ Banco de dados relacional
 
 **Stack considerada para a versão pública:** Python, FastAPI, React, PostgreSQL, Docker e Pytest. A implementação e as escolhas técnicas efetivas serão documentadas conforme forem realizadas.
 
+Consulte [Decisões arquiteturais da demonstração](docs/decisoes-arquiteturais.md) para a justificativa do monólito modular, os limites de cada camada e os trade-offs considerados.
+
 ## Princípios técnicos
 
 - **Rastreabilidade:** associar informações a suas fontes e aos registros que as fundamentam.
