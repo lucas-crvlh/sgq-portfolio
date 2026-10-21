@@ -91,7 +91,7 @@ A automação utiliza permissões mínimas de leitura (`contents: read`), não p
 
 **Limites:** este workflow não configura lint, cobertura, testes de interface, varredura de segurança ou verificação de código confidencial. Nenhum desses controles deve ser tratado como implementado.
 
-**Evidência:** resultados devem ser verificados na [página de execuções do GitHub Actions](../actions/workflows/ci.yml) e associados ao commit testado. A criação do workflow não constitui, por si só, evidência de aprovação.
+**Evidência:** resultados devem ser verificados na [página de execuções do GitHub Actions](https://github.com/lucas-crvlh/sgq-portfolio/actions/workflows/ci.yml) e associados ao commit testado. A criação do workflow não constitui, por si só, evidência de aprovação.
 
 ## 7. Riscos considerados
 
