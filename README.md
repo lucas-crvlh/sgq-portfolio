@@ -1,5 +1,7 @@
 # SGQ — Sistema de Gestão da Qualidade
 
+[![Python tests](https://github.com/lucas-crvlh/sgq-portfolio/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/lucas-crvlh/sgq-portfolio/actions/workflows/ci.yml)
+
 **Portfólio técnico | Engenharia de Software | Gestão de Normas Técnicas**
 
 Este repositório documenta uma **versão demonstrativa e independente** de um Sistema de Gestão da Qualidade (SGQ), inspirada em desafios de engenharia de software enfrentados em um projeto para uma **empresa confidencial**.
