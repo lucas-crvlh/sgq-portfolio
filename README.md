@@ -146,7 +146,7 @@ python -m pytest -q
 
 **Resultado de validação local:** 12 testes aprovados no desenvolvimento do incremento. Os testes exercitam criação, leitura, normalização, duplicidade, validação, paginação e persistência após reinício.
 
-**Integração contínua:** [GitHub Actions — Python tests](../../actions/workflows/ci.yml) executa `python -m pytest -q` em pull requests, pushes na `main` e acionamento manual. Consulte o histórico do workflow para confirmar os resultados de execução no GitHub; a presença do arquivo, isoladamente, não comprova aprovação.
+**Integração contínua:** [GitHub Actions — Python tests](https://github.com/lucas-crvlh/sgq-portfolio/actions/workflows/ci.yml) executa `python -m pytest -q` em pull requests, pushes na `main` e acionamento manual. Consulte o histórico do workflow para confirmar os resultados de execução no GitHub; a presença do arquivo, isoladamente, não comprova aprovação.
 
 **Limitações:** este protótipo não implementa autenticação, RBAC, auditoria, acompanhamento de revisões ou decisões. Por isso, **destina-se exclusivamente a estudo e execução local; não deve ser exposto publicamente como serviço**.
 
