@@ -1,6 +1,6 @@
 # Estratégia de testes e qualidade — SGQ Portfolio
 
-**Status:** catálogo mínimo implementado com testes locais; cenários de revisões, avaliações e auditoria permanecem planejados. Foram executados **12 testes com sucesso no ambiente local**; não existe CI configurada.  
+**Status:** catálogo mínimo implementado com testes locais; cenários de revisões, avaliações e auditoria permanecem planejados. Foram executados **12 testes com sucesso no ambiente local**; o workflow do GitHub Actions está configurado para executar a suíte automaticamente. Consulte as execuções para verificar o resultado de CI.  
 **Abrangência:** código próprio e dados inteiramente sintéticos.  
 **Natureza:** proposta independente para portfólio, sem replicar planos de teste, artefatos ou políticas da empresa confidencial.
 
@@ -64,30 +64,34 @@ Uma funcionalidade da **demonstração pública** só deverá ser marcada como i
 
 A evidência deverá apontar para testes e execuções existentes. Não serão publicados percentuais de cobertura, contagens de testes, badges de CI ou alegações de segurança sem medição correspondente.
 
-## 6. Integração contínua prevista
+## 6. Integração contínua implementada
 
-Após a criação de uma base de código executável, poderá ser configurado um workflow no GitHub Actions para:
+O arquivo [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) define a execução dos testes Python no GitHub Actions.
 
 ```text
-Pull request / push
+Push na main / Pull request para main / Execução manual
         |
         v
-Instalar dependências com versões definidas
+Runner ubuntu-24.04 + Python 3.12
         |
         v
-Verificações estáticas (quando configuradas)
+Instalar dependências fixadas em requirements.txt
         |
         v
-Testes unitários e de API
+Conferir consistência das dependências (pip check)
         |
         v
-Testes de integração em ambiente descartável
+Executar suíte: python -m pytest -q
         |
         v
-Publicar resultados e encerrar com sucesso/falha
+GitHub Actions registra sucesso/falha do job
 ```
 
-**Estado atual:** o fluxo acima é uma proposta documental, **não existe como pipeline configurado** neste repositório. A seleção de ferramentas, versões e políticas de aprovação dependerá da implementação real.
+A automação utiliza permissões mínimas de leitura (`contents: read`), não precisa de secrets e executa os testes com base em arquivos temporários SQLite. O checkout desabilita a persistência de credenciais.
+
+**Limites:** este workflow não configura lint, cobertura, testes de interface, varredura de segurança ou verificação de código confidencial. Nenhum desses controles deve ser tratado como implementado.
+
+**Evidência:** resultados devem ser verificados na [página de execuções do GitHub Actions](../actions/workflows/ci.yml) e associados ao commit testado. A criação do workflow não constitui, por si só, evidência de aprovação.
 
 ## 7. Riscos considerados
 
@@ -102,9 +106,9 @@ Publicar resultados e encerrar com sucesso/falha
 
 ## 8. Escopo deliberadamente não afirmado
 
-Este documento **não certifica conformidade normativa, segurança, capacidade de produção ou qualidade do sistema corporativo original**. O incremento de catálogo possui testes locais executados, mas ainda não dispõe de CI, controle de acesso nem cobertura para os módulos futuros.
+Este documento **não certifica conformidade normativa, segurança, capacidade de produção ou qualidade do sistema corporativo original**. O incremento de catálogo possui testes locais e workflow de CI configurado, mas ainda não dispõe de controle de acesso nem cobertura para os módulos futuros.
 
-Quando os primeiros testes forem implementados, esta matriz será atualizada com links para código, comandos de execução e resultados correspondentes.
+À medida que novos módulos e testes forem implementados, esta matriz deverá ser atualizada com links para código, comandos de execução e resultados correspondentes.
 
 ---
 
