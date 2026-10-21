@@ -100,6 +100,8 @@ Banco de dados relacional
 
 Consulte [Decisões arquiteturais da demonstração](docs/decisoes-arquiteturais.md) para a justificativa do monólito modular, os limites de cada camada e os trade-offs considerados.
 
+Consulte também [Estratégia de testes e qualidade](docs/estrategia-testes-qualidade.md) para os cenários planejados, critérios de aceite, abordagem de validação e CI futura. **Os testes ainda não foram implementados neste repositório.**
+
 ## Princípios técnicos
 
 - **Rastreabilidade:** associar informações a suas fontes e aos registros que as fundamentam.
