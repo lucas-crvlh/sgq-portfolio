@@ -6,7 +6,7 @@ Este repositório documenta uma **versão demonstrativa e independente** de um S
 
 O sistema corporativo original e seu repositório são privados. O conteúdo aqui publicado será desenvolvido especificamente para fins de portfólio, com exemplos fictícios, sem reutilizar código, documentos ou dados internos.
 
-> **Status:** documentação conceitual inicial. Ainda não há uma aplicação demonstrativa executável neste repositório. Os recursos descritos abaixo representam o escopo da demonstração pública, não funcionalidades já entregues aqui.
+> **Status:** primeiro incremento executável do catálogo fictício (API para cadastro, listagem e consulta, com persistência local e testes). Os demais módulos, incluindo verificações, avaliações, RBAC e auditoria, permanecem **planejados** e não estão implementados.
 
 ## Visão geral
 
@@ -64,13 +64,13 @@ Neste exemplo, o software **organiza informações e registra ações**, mas **n
 - **API e persistência:** prever contratos de leitura e escrita, com validações e histórico consistente.
 - **Estratégia de testes:** exercitar permissões, entradas inválidas, transições de estado e preservação do histórico.
 
-**Estado de implementação:** este estudo de caso é **documentação ilustrativa**. O fluxo, os endpoints, as telas e os testes ainda não foram implementados neste repositório.
+**Estado de implementação:** este estudo de caso permanece ilustrativo quanto ao fluxo de verificações, avaliações e auditoria. Apenas o **catálogo mínimo de normas fictícias** possui API, armazenamento e testes implementados. Não há interface gráfica nem as demais etapas do fluxo.
 
 ## Escopo previsto para a demonstração
 
 | Módulo | Objetivo |
 | --- | --- |
-| Catálogo de normas | Cadastrar e consultar referências técnicas fictícias. |
+| Catálogo de normas | **Implementado parcialmente:** cadastrar, listar e consultar referências fictícias, com SQLite local. |
 | Acompanhamento de revisões | Registrar verificações, versões e evidências simuladas. |
 | Análise de impacto | Organizar pendências e avaliações por responsáveis autorizados. |
 | Histórico auditável | Registrar alterações, autoria, data e justificativa. |
@@ -96,11 +96,57 @@ API de aplicação
 Banco de dados relacional
 ```
 
-**Stack considerada para a versão pública:** Python, FastAPI, React, PostgreSQL, Docker e Pytest. A implementação e as escolhas técnicas efetivas serão documentadas conforme forem realizadas.
+**Stack implementada neste incremento:** Python, FastAPI, SQLAlchemy, SQLite e Pytest. React, PostgreSQL e Docker são possibilidades futuras, **não componentes implementados**.
 
 Consulte [Decisões arquiteturais da demonstração](docs/decisoes-arquiteturais.md) para a justificativa do monólito modular, os limites de cada camada e os trade-offs considerados.
 
 Consulte também [Estratégia de testes e qualidade](docs/estrategia-testes-qualidade.md) para os cenários planejados, critérios de aceite, abordagem de validação e CI futura. **Os testes ainda não foram implementados neste repositório.**
+
+## Primeiro incremento executável: catálogo fictício
+
+Implementado de forma independente para fins de portfólio, sem código ou dados corporativos.
+
+| Método | Endpoint | Operação | Respostas principais |
+| --- | --- | --- | --- |
+| `GET` | `/health` | Verificar disponibilidade da API | `200` |
+| `POST` | `/normas` | Cadastrar norma fictícia | `201`, `409` duplicado, `422` inválido |
+| `GET` | `/normas` | Listar normas, com `limit` e `offset` | `200`, `422` |
+| `GET` | `/normas/{codigo}` | Consultar por código | `200`, `404` |
+
+**Execução local** (Python 3.11+):
+
+```bash
+git clone https://github.com/lucas-crvlh/sgq-portfolio.git
+cd sgq-portfolio
+python -m venv .venv
+# Linux/macOS: source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m uvicorn app.main:app --reload
+```
+
+Com o servidor ativo, acesse `http://127.0.0.1:8000/docs` para experimentar os endpoints via Swagger UI. Exemplo de corpo para `POST /normas`:
+
+```json
+{
+  "codigo": "DEMO-NORMA-001",
+  "titulo": "Documento demonstrativo de medição",
+  "revisao": "R1",
+  "organismo_emissor": "Organismo Fictício"
+}
+```
+
+A aplicação cria o arquivo local `sgq_portfolio.db` automaticamente; ele é ignorado pelo Git.
+
+**Testes:**
+
+```bash
+python -m pytest -q
+```
+
+**Resultado de validação local:** 12 testes aprovados no desenvolvimento do incremento. Os testes exercitam criação, leitura, normalização, duplicidade, validação, paginação e persistência após reinício. **Ainda não existe pipeline de CI configurado no GitHub.**
+
+**Limitações:** este protótipo não implementa autenticação, RBAC, auditoria, acompanhamento de revisões ou decisões. Por isso, **destina-se exclusivamente a estudo e execução local; não deve ser exposto publicamente como serviço**.
 
 ## Princípios técnicos
 
@@ -122,7 +168,7 @@ Esta versão de portfólio **não é um clone, fork ou distribuição do SGQ cor
 
 ## Próximas etapas
 
-A primeira implementação planejada é um catálogo mínimo de normas fictícias, acompanhado de API, persistência, testes e instruções de execução. O escopo poderá evoluir incrementalmente, com registro explícito do que estiver realmente implementado.
+O catálogo mínimo de normas fictícias já possui API, persistência SQLite e testes automatizados locais. Próximos incrementos poderão incluir CI no GitHub Actions e ampliar funcionalidades, começando pela análise das lacunas do catálogo. Toda evolução deverá usar código próprio e dados sintéticos, com registro explícito das funcionalidades realmente implementadas.
 
 ---
 
