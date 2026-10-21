@@ -8,6 +8,29 @@ Este repositório documenta uma **versão demonstrativa e independente** de um S
 
 O sistema corporativo original e seu repositório são privados. O conteúdo aqui publicado será desenvolvido especificamente para fins de portfólio, com exemplos fictícios, sem reutilizar código, documentos ou dados internos.
 
+## Resumo executivo
+
+| Aspecto | Visão geral |
+| --- | --- |
+| **Problema** | Dependência de controles manuais para acompanhar documentos técnicos, suas revisões e as decisões associadas. |
+| **Solução de referência** | Sistema corporativo de gestão de normas técnicas com organização do acervo, rastreabilidade e fluxos de avaliação humana. |
+| **Engenharia no contexto profissional** | APIs e aplicação web com Python, FastAPI, React, TypeScript e PostgreSQL; arquitetura de monólito modular, testes e controles de acesso. |
+| **Demonstração pública** | Catálogo fictício independente com FastAPI, SQLAlchemy, SQLite, 12 testes automatizados e GitHub Actions. Não reproduz o sistema corporativo. |
+| **Confidencialidade** | Empresa não identificada, repositório original privado e exemplos sintéticos. |
+
+## Minha atuação
+
+Minha participação profissional neste projeto incluiu atividades de **análise de sistemas, engenharia de software e organização das entregas técnicas**:
+
+- **Discovery e requisitos:** investigação de processos manuais, levantamento de necessidades e definição do escopo inicial de gestão de normas técnicas.
+- **Modelagem e arquitetura:** organização das regras de negócio, fluxos de informação, responsabilidades dos módulos e decisões técnicas.
+- **Desenvolvimento:** implementação e evolução de componentes da aplicação, APIs e persistência, em colaboração com as áreas envolvidas.
+- **Qualidade e rastreabilidade:** validação técnica, testes automatizados, documentação de mudanças e acompanhamento das entregas por versionamento e revisão de código.
+
+As decisões de negócio, os critérios de Qualidade e as aprovações funcionais permanecem com os respectivos responsáveis. Esta descrição apresenta **minha contribuição**, não atribui a mim individualmente todas as entregas da equipe.
+
+**Neste repositório público**, desenvolvi e documentei separadamente a demonstração do catálogo, seus testes e a integração contínua, usando apenas código original e dados fictícios.
+
 > **Status:** primeiro incremento executável do catálogo fictício (API para cadastro, listagem e consulta, com persistência local e testes). Os demais módulos, incluindo verificações, avaliações, RBAC e auditoria, permanecem **planejados** e não estão implementados.
 
 ## Visão geral
