@@ -1,12 +1,12 @@
 # Decisões arquiteturais — SGQ Portfolio
 
-**Status:** proposta de arquitetura para demonstração pública; não implementada.  
+**Status:** arquitetura-alvo em planejamento; primeiro incremento executável restrito ao catálogo fictício com FastAPI, SQLAlchemy e SQLite.  
 **Escopo:** projeto independente com dados fictícios.  
 **Nota de confidencialidade:** este documento foi redigido especificamente para o portfólio. Não reproduz especificações, diagramas, código nem decisões registradas no repositório corporativo.
 
 ## Objetivo
 
-Documentar as escolhas técnicas previstas para um protótipo de gestão de normas, revisões e avaliações humanas. As decisões a seguir são **propostas para este repositório**, não uma descrição verificável da implementação original.
+Documentar as escolhas técnicas previstas para uma demonstração de gestão de normas, revisões e avaliações humanas. O **catálogo mínimo** já possui implementação independente. As separações de domínio, os fluxos de revisão e a arquitetura completa abaixo permanecem **propostas para evoluções do portfólio**, não uma descrição da implementação original.
 
 ## DA-001 — Monólito modular no backend
 
@@ -67,7 +67,7 @@ Autorização e auditoria: preocupações transversais
 
 ## DA-003 — Persistência relacional e histórico
 
-**Decisão proposta:** utilizar banco relacional para representar entidades relacionadas e garantir consistência entre registros.
+**Decisão proposta:** utilizar banco relacional para representar entidades relacionadas e garantir consistência entre registros. **No incremento inicial**, foi implementado um catálogo simples com **SQLite e SQLAlchemy**, sem o modelo completo de revisões ou auditoria. PostgreSQL permanece uma opção para futuras evoluções.
 
 No cenário fictício `DOC-DEMO-001`, uma verificação que indica a revisão `R2` poderá gerar uma pendência de avaliação. A proposta é registrar a ação relevante e seu contexto dentro da mesma unidade transacional, sempre que aplicável.
 
@@ -98,6 +98,6 @@ Antes de declarar qualquer capacidade como implementada, a versão pública deve
 
 ## Limitações
 
-Nenhuma das decisões acima comprova funcionalidade operacional neste repositório. Tecnologias, módulos, endpoints, políticas e testes poderão mudar durante a implementação; alterações relevantes deverão ser registradas neste documento.
+Somente o catálogo inicial de normas fictícias está implementado (cadastro, listagem, consulta, persistência local e testes). O modelo completo de arquitetura, os controles de autorização e os fluxos de verificação ou auditoria continuam planejados. Tecnologias e módulos poderão mudar durante a evolução do portfólio; alterações relevantes deverão ser registradas neste documento.
 
 Este material não permite inferir os controles efetivos, a infraestrutura ou o nível de maturidade do sistema corporativo de origem.

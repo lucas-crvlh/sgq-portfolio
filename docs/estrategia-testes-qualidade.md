@@ -1,16 +1,16 @@
 # Estratégia de testes e qualidade — SGQ Portfolio
 
-**Status:** planejamento de qualidade da demonstração pública; **nenhum teste deste documento foi implementado ou executado neste repositório**.  
+**Status:** catálogo mínimo implementado com testes locais; cenários de revisões, avaliações e auditoria permanecem planejados. Foram executados **12 testes com sucesso no ambiente local**; não existe CI configurada.  
 **Abrangência:** código próprio e dados inteiramente sintéticos.  
 **Natureza:** proposta independente para portfólio, sem replicar planos de teste, artefatos ou políticas da empresa confidencial.
 
 ## 1. Objetivo
 
-Definir como a aplicação demonstrativa de gestão de normas técnicas será validada quando houver código executável. O foco é mostrar decisões de engenharia verificáveis: **comportamento correto, autorização no backend, consistência transacional e rastreabilidade**.
+Registrar como o catálogo inicial é validado e como os demais módulos demonstrativos serão testados conforme forem implementados. O foco é mostrar decisões de engenharia verificáveis: **comportamento correto, autorização no backend, consistência transacional e rastreabilidade**.
 
 O cenário de referência é fictício: o documento `DOC-DEMO-001` aparece cadastrado como `R1`; uma verificação simulada encontra `R2`; um usuário autorizado registra uma avaliação com justificativa e o histórico permanece consultável.
 
-Os testes descritos abaixo representam **critérios planejados**, não evidências de aprovação.
+Os cenários PORT-T01 a PORT-T03 já possuem testes implementados em [tests/test_catalogo.py](../tests/test_catalogo.py), com execução local de 12 testes aprovada. Os demais cenários representam **critérios planejados**, não evidências de aprovação.
 
 ## 2. Abordagem por nível
 
@@ -41,7 +41,7 @@ Os identificadores `PORT-Txx` existem **apenas neste portfólio** e não corresp
 | PORT-T09 | Consulta ao histórico da referência | API / integração | Eventos vinculados à referência consultada em ordem definida |
 | PORT-T10 | Tentativas repetidas de uma mesma operação sensível | Integração | Comportamento idempotente ou conflito explícito, conforme contrato futuro |
 
-**Prioridade inicial:** PORT-T01 a PORT-T03 (catálogo mínimo). Os demais dependerão da implementação posterior de verificações, avaliações, autorização e auditoria.
+**Implementados neste incremento:** PORT-T01 a PORT-T03 (incluindo validação e persistência), com testes adicionais de paginação e reinício. **Planejados:** PORT-T04 a PORT-T10, dependentes de futuras funcionalidades. A suíte executada possui **12 casos de teste parametrizados incluídos**.
 
 ## 4. Dados e isolamento
 
@@ -102,7 +102,7 @@ Publicar resultados e encerrar com sucesso/falha
 
 ## 8. Escopo deliberadamente não afirmado
 
-Este documento **não certifica conformidade normativa, segurança, capacidade de produção ou qualidade do sistema corporativo original**. Também não comprova execução de testes: o portfólio ainda está na fase documental.
+Este documento **não certifica conformidade normativa, segurança, capacidade de produção ou qualidade do sistema corporativo original**. O incremento de catálogo possui testes locais executados, mas ainda não dispõe de CI, controle de acesso nem cobertura para os módulos futuros.
 
 Quando os primeiros testes forem implementados, esta matriz será atualizada com links para código, comandos de execução e resultados correspondentes.
 
