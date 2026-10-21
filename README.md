@@ -100,7 +100,7 @@ Banco de dados relacional
 
 Consulte [Decisões arquiteturais da demonstração](docs/decisoes-arquiteturais.md) para a justificativa do monólito modular, os limites de cada camada e os trade-offs considerados.
 
-Consulte também [Estratégia de testes e qualidade](docs/estrategia-testes-qualidade.md) para os cenários planejados, critérios de aceite, abordagem de validação e CI futura. **Os testes ainda não foram implementados neste repositório.**
+Consulte também [Estratégia de testes e qualidade](docs/estrategia-testes-qualidade.md) para os cenários implementados e planejados, critérios de aceite e abordagem de validação. Os testes do catálogo estão implementados; revisões, avaliações, RBAC e auditoria continuam planejados.
 
 ## Primeiro incremento executável: catálogo fictício
 
@@ -144,7 +144,9 @@ A aplicação cria o arquivo local `sgq_portfolio.db` automaticamente; ele é ig
 python -m pytest -q
 ```
 
-**Resultado de validação local:** 12 testes aprovados no desenvolvimento do incremento. Os testes exercitam criação, leitura, normalização, duplicidade, validação, paginação e persistência após reinício. **Ainda não existe pipeline de CI configurado no GitHub.**
+**Resultado de validação local:** 12 testes aprovados no desenvolvimento do incremento. Os testes exercitam criação, leitura, normalização, duplicidade, validação, paginação e persistência após reinício.
+
+**Integração contínua:** [GitHub Actions — Python tests](../../actions/workflows/ci.yml) executa `python -m pytest -q` em pull requests, pushes na `main` e acionamento manual. Consulte o histórico do workflow para confirmar os resultados de execução no GitHub; a presença do arquivo, isoladamente, não comprova aprovação.
 
 **Limitações:** este protótipo não implementa autenticação, RBAC, auditoria, acompanhamento de revisões ou decisões. Por isso, **destina-se exclusivamente a estudo e execução local; não deve ser exposto publicamente como serviço**.
 
@@ -168,7 +170,7 @@ Esta versão de portfólio **não é um clone, fork ou distribuição do SGQ cor
 
 ## Próximas etapas
 
-O catálogo mínimo de normas fictícias já possui API, persistência SQLite e testes automatizados locais. Próximos incrementos poderão incluir CI no GitHub Actions e ampliar funcionalidades, começando pela análise das lacunas do catálogo. Toda evolução deverá usar código próprio e dados sintéticos, com registro explícito das funcionalidades realmente implementadas.
+O catálogo mínimo de normas fictícias já possui API, persistência SQLite, testes automatizados e workflow de integração contínua no GitHub Actions. Próximos incrementos poderão ampliar as funcionalidades, começando pela análise das lacunas do catálogo. Toda evolução deverá usar código próprio e dados sintéticos, com registro explícito das funcionalidades realmente implementadas.
 
 ---
 
