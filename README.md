@@ -1,1 +1,1 @@
-# sqg-portf-lio
+# sqg-portfolio
