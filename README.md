@@ -14,6 +14,58 @@ A gestão de normas técnicas envolve identificação de documentos, acompanhame
 
 A proposta desta demonstração é explorar como uma aplicação centralizada pode apoiar essas atividades, mantendo **histórico auditável, permissões por responsabilidade e validação humana**.
 
+## Estudo de caso técnico (cenário fictício)
+
+### Problema
+
+Considere uma equipe responsável por acompanhar referências técnicas utilizadas em suas atividades. Quando a revisão de um documento muda, é necessário identificar a diferença, avaliar sua relevância, registrar uma decisão e preservar evidências do processo. Registros dispersos dificultam a consulta ao histórico e a identificação de pendências.
+
+### Exemplo demonstrativo
+
+O cenário abaixo é **inteiramente sintético**. Não descreve documentos, decisões, prazos ou procedimentos internos da empresa confidencial.
+
+| Campo | Valor fictício |
+| --- | --- |
+| Referência | `DOC-DEMO-001` |
+| Documento | Procedimento técnico ilustrativo |
+| Revisão cadastrada | `R1` |
+| Revisão identificada na simulação | `R2` |
+| Situação ilustrativa | Alteração a avaliar |
+| Responsável pela avaliação | Usuário fictício com permissão de análise |
+
+### Fluxo proposto
+
+```text
+Referência cadastrada (R1)
+          |
+          v
+Verificação simulada identifica R2
+          |
+          v
+Registro de divergência e evidência fictícia
+          |
+          v
+Pendência para análise por pessoa autorizada
+          |
+          v
+Decisão humana com justificativa
+          |
+          v
+Histórico consultável da verificação e da decisão
+```
+
+Neste exemplo, o software **organiza informações e registra ações**, mas **não decide automaticamente** se uma revisão deve ser adotada.
+
+### Aspectos de engenharia demonstráveis
+
+- **Modelagem de domínio:** separar documentos, revisões, verificações, pendências e registros de auditoria.
+- **Regras de acesso:** permitir que somente perfis autorizados registrem avaliações e decisões.
+- **Integridade e rastreabilidade:** vincular cada evento à referência analisada, ao usuário fictício e ao instante do registro.
+- **API e persistência:** prever contratos de leitura e escrita, com validações e histórico consistente.
+- **Estratégia de testes:** exercitar permissões, entradas inválidas, transições de estado e preservação do histórico.
+
+**Estado de implementação:** este estudo de caso é **documentação ilustrativa**. O fluxo, os endpoints, as telas e os testes ainda não foram implementados neste repositório.
+
 ## Escopo previsto para a demonstração
 
 | Módulo | Objetivo |
